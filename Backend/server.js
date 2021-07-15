@@ -38,6 +38,13 @@ mongoose.connection.once("open", ()=>{
     console.log("Mongodb Connection success!!");
 })
 
+//access to students.js file
+const students = require("./routes/students.js");
+
+/*if call the /student in the url it calls path 
+in the students variable.*/
+app.use("/student",students);
+
 //lisen the por
 app.listen(PORT,()=>{
     console.log(`Server is up and running on port number: ${PORT}`)
