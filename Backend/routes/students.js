@@ -81,10 +81,10 @@ router.route("/get/:id").get(async (req,res)=>{
     let Stuid = req.params.id
 
     const userDetails = await Student.findById(Stuid).then(()=>{
-        res.status(200).send({status:"User details", user:userDetails})
+        res.status(200).send({status:"User details", user:userDetails});
     }).catch((err)=>{
         console.log(err);
-        res.status(404).send({message:"Error with finding user details"})
+        res.status(404).send({message:"Error with finding user details" });
     })
 
 
