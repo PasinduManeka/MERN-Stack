@@ -75,4 +75,20 @@ router.route("/delete/:id").delete(async (req,res)=>{
 
 })
 
+//get single user data
+router.route("/get/:id").get(async (req,res)=>{
+    //store student id
+    let Stuid = req.params.id
+
+    const userDetails = await Student.findById(Stuid).then(()=>{
+        res.status(200).send({status:"User details", user:userDetails})
+    }).catch((err)=>{
+        console.log(err);
+        res.status(404).send({message:"Error with finding user details"})
+    })
+
+
+})
+
+
 module.exports = router;
