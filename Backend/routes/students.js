@@ -8,6 +8,7 @@ let Student = require("../models/student");
 //post(Insert)
 //url component
 router.route("/add").post((req,res)=>{
+    //body
     //creaate variables to assign the requested url body values
     const name = req.body.name;
     const age = Number(req.body.age);
@@ -26,7 +27,19 @@ router.route("/add").post((req,res)=>{
 })
 
 //Get(display)
-router.route("/").get()
+router.route("/").get((req,res)=>{
+    //body
+    Student.find().then((students)=>{
+        res.json(students)
+    }).catch((error)=>{
+        console.log(err)
+    })
+})
+
+//Find and update the student
+
+
+//Delete
 
 
 
