@@ -43,6 +43,7 @@ const students = require("./routes/students.js");
 
 /*if call the /student in the url it calls path 
 in the students variable.*/
+//url
 app.use("/student",students);
 
 //lisen the por

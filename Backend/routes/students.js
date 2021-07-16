@@ -19,11 +19,17 @@ router.route("/add").post((req,res)=>{
         age,
         gender
     })
-    newStudent.save(()=>{
+    
+    newStudent.save().then(()=>{
         res.json("Student added.");
     }).catch((err)=>{
         console.log(err);
+        res.status(404).send({status:"Student has not been inserted."})
+
     })
+    
+    
+    
 })
 
 //Get(display)
@@ -31,8 +37,8 @@ router.route("/").get((req,res)=>{
     //body
     Student.find().then((students)=>{
         res.json(students)
-    }).catch((error)=>{
-        console.log(err)
+    }).catch((err)=>{
+        console.log(err);
     })
 })
 
@@ -54,7 +60,7 @@ router.route("/update/:id").put(async (req,res)=>{
     //check the id is available in the mongodb and update 
     //without if condiyion 
     const update = await Student.findByIdAndUpdate(stuid,updateStudent).then(()=>{
-        res.status(200).send({status:"Status user updated",user:update})
+        res.status(200).send({status:"Status user updated"})
     }).catch((err)=>{
         console.log(err);
         res.status(404).send({status:"Error with updated data.",error:err.message});
@@ -80,8 +86,8 @@ router.route("/get/:id").get(async (req,res)=>{
     //store student id
     let Stuid = req.params.id
 
-    const userDetails = await Student.findById(Stuid).then(()=>{
-        res.status(200).send({status:"User details", user:userDetails});
+    const userDetails = await Student.findById(Stuid).then((student)=>{
+        res.status(200).send({status:"User details",student});
     }).catch((err)=>{
         console.log(err);
         res.status(404).send({message:"Error with finding user details" });
