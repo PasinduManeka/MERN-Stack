@@ -16,7 +16,7 @@ router.route("/add").post((req,res)=>{
     const newStudent = new Student({
         name,
         age,
-        gebder
+        gender
     })
     newStudent.save(()=>{
         res.json("Student added.");
