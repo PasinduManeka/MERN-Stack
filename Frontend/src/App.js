@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 import './App.css';
-import CounterClass from './Co/counterclass';
+import CounterClass from './Components/counterclass';
 
 
 function App() {
