@@ -1,15 +1,17 @@
 //import logo from './logo.svg';
 import './App.css';
-import CounterClass from './Components/counterclass';
-import CounterFunction from './Components/counterFunction';
 import Header from './Components/header.js';
-
+import AddStudents from './Components/AddStudents';
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
+    <Router>
+      <div className="">
+        <Header />
+        <Route path="/addStudent" exact component={AddStudents}/>
     </div>
+    </Router>
   );
 }
 
