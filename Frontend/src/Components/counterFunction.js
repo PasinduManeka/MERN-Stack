@@ -8,7 +8,7 @@ function CounterFunction(){
 
     return(
         <div>
-            <h3>Functiobal Component</h3>
+            <h3>Functional Component</h3>
             <h1>You have clicked {count} times.</h1>
             <button className="btn btn-outline-danger" onClick={e=>increment()}>Increased the Count</button>
         </div>
