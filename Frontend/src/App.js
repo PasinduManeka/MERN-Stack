@@ -2,14 +2,13 @@
 import './App.css';
 import CounterClass from './Components/counterclass';
 import CounterFunction from './Components/counterFunction';
+import Header from './Components/header.js';
 
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
-      <CounterClass/>
-      <CounterFunction/>
+      <Header />
     </div>
   );
 }
