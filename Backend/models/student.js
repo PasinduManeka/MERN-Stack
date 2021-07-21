@@ -5,18 +5,9 @@ const Schema = mongoose.Schema;
 
 //create the schema and create the student's attributes
 const studentSchema = new Schema({
-    name : {
-        type:String,
-        required:true
-    },
-    age : {
-        type:Number,
-        required:true
-    },
-    gender : {
-        type:String,
-        required:true
-    },
+    name : {type:String,required:true},
+    age : {type:Number,required:true},
+    gender : {type:String,required:true},
 })
 
 //send specific schema to particular table

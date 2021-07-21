@@ -10,6 +10,7 @@ const students = require("./routes/students.js");
 in the students variable.*/
 //url
 app.use("/student",students);
+
 //const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
