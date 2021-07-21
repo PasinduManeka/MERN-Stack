@@ -14,7 +14,7 @@ const AddStudents = () => {
         const newStudent={name,age,gender}
 
         axios.post("http://localhost:8070/student/add",newStudent).then(()=>{
-            alert("Student Aded...");
+            alert("Student Aded...");  
         }).catch((err)=>{
             console.log(err);
             alert(err);
@@ -27,7 +27,7 @@ const AddStudents = () => {
                 <div className="from-group">
                     <label for="name ">Name</label>
                     <input type="text" 
-                    class="form-control" 
+                    class="form-control"    
                     id="name" 
                     placeholder="Enter Student Name" 
                     onChange={(e)=>{

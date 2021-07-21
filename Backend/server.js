@@ -2,8 +2,14 @@
 //Then we can call the function easily
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser")
 const cors = require("cors");
+
+//access to students.js file
+const students = require("./routes/students.js");
+/*if call the /student in the url it calls path 
+in the students variable.*/
+//url
+app.use("/student",students);
 //const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
@@ -23,6 +29,7 @@ app.use(express.json());
 //get the stored url 
 const URL = process.env.MONGODB_URL;
 
+
 //make the configurations
  mongoose.connect(URL,{
      useCreateIndex:true,
@@ -37,14 +44,6 @@ const conn = mongoose.connection;
 mongoose.connection.once("open", ()=>{
     console.log("Mongodb Connection success!!");
 })
-
-//access to students.js file
-const students = require("./routes/students.js");
-
-/*if call the /student in the url it calls path 
-in the students variable.*/
-//url
-app.use("/student",students);
 
 //lisen the por
 app.listen(PORT,()=>{
