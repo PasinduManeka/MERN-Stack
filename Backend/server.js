@@ -6,14 +6,16 @@ const cors = require("cors");
 
 //access to students.js file
 const students = require("./routes/students.js");
-/*if call the /student in the url it calls path 
-in the students variable.*/
-//url
-app.use("/student",students);
+
 
 //const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
+
+/*if call the /student in the url it calls path 
+in the students variable.*/
+//url
+app.use("/student",students);
 
 //create a variable to define the server port number
 /* 8070 means whwn run the application on local computer, 

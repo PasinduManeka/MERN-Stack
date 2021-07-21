@@ -2,11 +2,35 @@
 Route() function which is in the express*/ 
 const router = require("express").Router();
 
-const saveStudent = require("../Controller/student.controller");
+//Import the student model file
+let Student = require("../models/student");
 
 //post(Insert)
 //url component
-router.post("/add",saveStudent)
+router.route("/add").post((req,res)=>{
+    //body
+    //creaate variables to assign the requested url body values
+    const name = req.body.name;
+    const age = Number(req.body.age);
+    const gender = req.body.gender;
+
+    const newStudent = new Student({
+        name,
+        age,
+        gender
+    })
+    
+    newStudent.save().then(()=>{
+        res.json("Student added.");
+    }).catch((err)=>{
+        console.log(err);
+        res.status(404).send({status:"Student has not been inserted."})
+
+    })
+    
+    
+    
+})
 
 //Get(display)
 router.route("/").get((req,res)=>{
